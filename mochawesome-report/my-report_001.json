@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-03-16T10:55:52.762Z",
+    "end": "2024-03-16T10:56:01.350Z",
+    "duration": 8588,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "aa600ab1-d642-446c-8fc1-aebd271bb089",
+      "title": "",
+      "fullFile": "cypress\\e2e\\login.cy.js",
+      "file": "cypress\\e2e\\login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2ee2b1c2-e9a8-4270-aec8-c584769a7366",
+          "title": "Login functionality",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "verify login to application with valid data",
+              "fullTitle": "Login functionality verify login to application with valid data",
+              "timedOut": null,
+              "duration": 6209,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demowebshop.tricentis.com/');\ncy.get('.ico-login').click();\n// Delay each keypress by 0.1 sec\ncy.get('#Email').type(userData.email);\ncy.get('#Password').type(userData.password);\ncy.get('form > .buttons > .button-1').click();\ncy.get('.header-links > ul > :nth-child(1) > .account').should($lis => {\n  expect($lis.eq(0), 'message').to.contain(userData.email);\n});\ncy.get('.ico-logout').click();",
+              "err": {},
+              "uuid": "070064c9-ed7c-4eb3-89cb-937dc492fe48",
+              "parentUUID": "2ee2b1c2-e9a8-4270-aec8-c584769a7366",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "070064c9-ed7c-4eb3-89cb-937dc492fe48"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6209,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "my-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "json": true,
+        "reportsDir": "reports/mochawesome",
+        "reportFilename": "my-report",
+        "overwrite": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}

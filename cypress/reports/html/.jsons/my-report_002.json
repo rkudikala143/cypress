@@ -1,0 +1,132 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-03-16T10:50:47.498Z",
+    "end": "2024-03-16T10:51:04.187Z",
+    "duration": 16689,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "dbeb44d7-ba3b-4faf-af51-8621c68ebd80",
+      "title": "",
+      "fullFile": "cypress\\e2e\\register.cy.js",
+      "file": "cypress\\e2e\\register.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5c215933-775a-45f4-9bb3-7d9ce35bde75",
+          "title": "Registration functionality",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "verify register functionality with valid data",
+              "fullTitle": "Registration functionality verify register functionality with valid data",
+              "timedOut": null,
+              "duration": 9564,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// launch the application \ncy.visit('https://demowebshop.tricentis.com/');\ncy.get('.ico-register').click();\ncy.get('#gender-male').click();\ncy.get('#FirstName').type('John');\ncy.get('#LastName').type('Doe');\n// Delay each keypress by 0.1 sec\ncy.get('#Email').type(userData.email);\ncy.get('#Password').type(userData.password);\ncy.get('#ConfirmPassword').type(userData.password);\ncy.get('#register-button').click();\nlet getText;\ncy.get('.result').should($lis => {\n  expect($lis.eq(0), 'message').to.contain('Your registration completed');\n});\ncy.get('.ico-logout').click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.result`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.result`, but never found it.\n    at Context.eval (webpack://cyauto/./cypress/e2e/register.cy.js:26:22)",
+                "diff": null
+              },
+              "uuid": "0b452cca-5cfd-45ec-9c5e-5d2bba7b88fd",
+              "parentUUID": "5c215933-775a-45f4-9bb3-7d9ce35bde75",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "verify register functionality with empty data and validate the error messages",
+              "fullTitle": "Registration functionality verify register functionality with empty data and validate the error messages",
+              "timedOut": null,
+              "duration": 3334,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// launch the application \ncy.visit('https://demowebshop.tricentis.com/');\ncy.get('.ico-register').click();\ncy.get('#FirstName').clear();\ncy.get('#LastName').clear();\ncy.get('#Email').clear();\ncy.get('#Password').clear();\ncy.get('#ConfirmPassword').clear();\ncy.get('#register-button').click();\ncy.get(':nth-child(2) > .form-fields > :nth-child(2) > .field-validation-error > span').should($lis => {\n  expect($lis.eq(0), 'fname error message').to.contain('First name is required.');\n});\ncy.get(':nth-child(3) > .field-validation-error > span').should($lis => {\n  expect($lis.eq(0), 'fname error message').to.contain('Last name is required.');\n});\ncy.get(':nth-child(4) > .field-validation-error > span').should($lis => {\n  expect($lis.eq(0), 'fname error message').to.contain('Email is required.');\n});\ncy.get(':nth-child(1) > .field-validation-error > span').should($lis => {\n  expect($lis.eq(0), 'fname error message').to.contain('Password is required.');\n});\ncy.get(':nth-child(3) > .form-fields > :nth-child(2) > .field-validation-error > span').should($lis => {\n  expect($lis.eq(0), 'fname error message').to.contain('Password is required.');\n});",
+              "err": {},
+              "uuid": "985290eb-cf2a-4c03-8214-f23061e3b599",
+              "parentUUID": "5c215933-775a-45f4-9bb3-7d9ce35bde75",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "985290eb-cf2a-4c03-8214-f23061e3b599"
+          ],
+          "failures": [
+            "0b452cca-5cfd-45ec-9c5e-5d2bba7b88fd"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 12898,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "my-report",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "json": true,
+        "reportsDir": "reports/mochawesome",
+        "reportFilename": "my-report",
+        "overwrite": false,
+        "html": false,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-03-16T10:50:15.109Z",
+    "end": "2024-03-16T10:50:34.409Z",
+    "duration": 19300,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "cf0851cb-5e1f-4230-8fe9-403929f03a9d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Hooks.cy.js",
+      "file": "cypress\\e2e\\Hooks.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3f7841e9-b7b2-4707-b0d2-219d1d56c5f6",
+          "title": "Register Functionality",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Register with valid data",
+              "fullTitle": "Register Functionality Register with valid data",
+              "timedOut": null,
+              "duration": 10147,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#gender-male\").click();\ncy.get(\"#FirstName\").type(\"John\");\ncy.get(\"#LastName\").type(\"Doe\");\n// Delay each keypress by 0.1 sec\ncy.get(\"#Email\").type(userData.email);\ncy.get(\"#Password\").type(userData.password);\ncy.get(\"#ConfirmPassword\").type(userData.password);\ncy.get(\"#register-button\").click();\nlet getText;\ncy.get(\".result\").should($lis => {\n  expect($lis.eq(0), \"message\").to.contain(\"Your registration completed\");\n});\ncy.screenshot();\ncy.get(\".ico-logout\").click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.result`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.result`, but never found it.\n    at Context.eval (webpack://cyauto/./cypress/e2e/Hooks.cy.js:31:22)",
+                "diff": null
+              },
+              "uuid": "ce33098a-e19c-43e2-996d-2d6cb881751e",
+              "parentUUID": "3f7841e9-b7b2-4707-b0d2-219d1d56c5f6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Regisetr without data",
+              "fullTitle": "Register Functionality Regisetr without data",
+              "timedOut": null,
+              "duration": 4185,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#FirstName\").clear();\ncy.get(\"#LastName\").clear();\ncy.get(\"#Email\").clear();\ncy.get(\"#Password\").clear();\ncy.get(\"#ConfirmPassword\").clear();\ncy.get(\"#register-button\").click();\ncy.screenshot();\ncy.get(\":nth-child(2) > .form-fields > :nth-child(2) > .field-validation-error > span\").should($lis => {\n  expect($lis.eq(0), \"fname error message\").to.contain(\"First name is required.\");\n});\ncy.get(\":nth-child(3) > .field-validation-error > span\").should($lis => {\n  expect($lis.eq(0), \"fname error message\").to.contain(\"Last name is required.\");\n});\ncy.get(\":nth-child(4) > .field-validation-error > span\").should($lis => {\n  expect($lis.eq(0), \"fname error message\").to.contain(\"Email is required.\");\n});\ncy.get(\":nth-child(1) > .field-validation-error > span\").should($lis => {\n  expect($lis.eq(0), \"fname error message\").to.contain(\"Password is required.\");\n});\ncy.get(\":nth-child(3) > .form-fields > :nth-child(2) > .field-validation-error > span\").should($lis => {\n  expect($lis.eq(0), \"fname error message\").to.contain(\"Password is required.\");\n});",
+              "err": {},
+              "uuid": "ae4d1bef-1411-4872-90e3-e994843fbec9",
+              "parentUUID": "3f7841e9-b7b2-4707-b0d2-219d1d56c5f6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ae4d1bef-1411-4872-90e3-e994843fbec9"
+          ],
+          "failures": [
+            "ce33098a-e19c-43e2-996d-2d6cb881751e"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 14332,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "my-report",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "json": true,
+        "reportsDir": "reports/mochawesome",
+        "reportFilename": "my-report",
+        "overwrite": false,
+        "html": false,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
